@@ -37,7 +37,7 @@ public class Test01 {
                     continue;
 
                 // ไปที่หน้าสมัคร
-                driver.get("https://sc.npru.ac.th/sc_shortcourses/signup");
+                driver.get("http://localhost/sc_shortcourses/signup");
 
                 // อ่านข้อมูลจาก Excel
                 String nameTitleTha = getCellValue(row.getCell(1));
