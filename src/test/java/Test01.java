@@ -36,7 +36,7 @@ public class Test01 {
         String excelPath = "./exel/Sci.xlsx";
         WebDriver driver = null;
         try (FileInputStream fis = new FileInputStream(excelPath);
-                   XSSFWorkbook workbook = new XSSFWorkbook(fis)) {
+             XSSFWorkbook workbook = new XSSFWorkbook(fis)) {
 
             System.out.println("Excel file loaded successfully");
             XSSFSheet sheet = workbook.getSheetAt(0);
@@ -47,9 +47,9 @@ public class Test01 {
             System.out.println("Initializing ChromeDriver...");
             driver = new ChromeDriver(options);
             driver.manage().window().maximize();
-            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
             driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-            WebDriverWait wait = new WebDriverWait(driver, 20);
+            WebDriverWait wait = new WebDriverWait(driver, 2);
             System.out.println("ChromeDriver initialized successfully");
 
             for (int i = 1; i <= rowNum; i++) {
@@ -139,13 +139,13 @@ public class Test01 {
 
                     System.out.println("Form filled successfully");
                     System.out.println("Waiting 5 seconds before next iteration...");
-                    TimeUnit.SECONDS.sleep(5);
+                    TimeUnit.SECONDS.sleep(2);
 
                 } catch (Exception e) {
                     System.out.println("Error processing row " + i + ": " + e.getMessage());
                     e.printStackTrace();
                     System.out.println("Waiting 10 seconds before retrying...");
-                    TimeUnit.SECONDS.sleep(10);
+                    TimeUnit.SECONDS.sleep(2);
                 }
             }
 
